@@ -18,6 +18,10 @@ class WP_Job_Manager_Blocks {
 	}
 
 	private function __construct() {
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
+
 		add_action( 'init', array( $this, 'register_blocks' ) );
 	}
 
